@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SimpleStorage {
+    uint256 private storedValue; // Переменная для хранения числа
+
+    // Событие, которое уведомляет о изменении значения
+    event ValueChanged(uint256 newValue);
+
+    // Функция для записи нового значения
+    function setValue(uint256 _value) public {
+        storedValue = _value;
+        emit ValueChanged(_value); // Запускаем событие
+    }
+
+    // Функция для получения текущего значения
+    function getValue() public view returns (uint256) {
+        return storedValue;
+    }
+}
